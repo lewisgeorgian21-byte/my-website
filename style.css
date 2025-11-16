@@ -52,7 +52,7 @@ header h1::after {
   100% { left: 250%; }
 }
 
-/* Facebook Button — Premium Christmas Glow Effect */
+/* Facebook Button — CLEAN WHITE GLOW ONLY */
 .fb {
   padding: 12px 22px;
   background: #1877f2;
@@ -64,55 +64,41 @@ header h1::after {
   transition: 0.25s;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 18px rgba(24,119,242,0.8);
-  border: 2px solid transparent;
-  animation: fbPulse 2.4s infinite ease-in-out;
+
+  /* Only white glow */
+  box-shadow: 0 0 10px rgba(255,255,255,0.45),
+              0 0 18px rgba(255,255,255,0.25);
 }
 
-/* Border Pulse – like LED lights */
-@keyframes fbPulse {
-  0% { border-color: red; box-shadow: 0 0 14px red; }
-  33% { border-color: gold; box-shadow: 0 0 14px gold; }
-  66% { border-color: green; box-shadow: 0 0 14px green; }
-  100% { border-color: #1877f2; box-shadow: 0 0 18px #1877f2; }
-}
-
-/* ❄ Floating Snowflakes (premium, smooth) */
-.fb::before {
-  content: "❄";
-  position: absolute;
-  top: -10px;
-  right: 10px;
-  font-size: 18px;
-  animation: snowFall 2s infinite ease-in-out;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 5px white);
-}
-
+/* Soft white shine */
 .fb::after {
-  content: "❄";
+  content: "";
   position: absolute;
-  top: -5px;
-  right: 35px;
-  font-size: 13px;
-  animation: snowFall2 2.4s infinite ease-in-out;
-  opacity: 0.8;
-  filter: drop-shadow(0 0 5px rgb(255,255,255));
+  top: 0;
+  left: -120%;
+  width: 70px;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: fbShine 3.5s infinite ease-in-out;
 }
 
-@keyframes snowFall {
-  0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(12px) rotate(180deg); opacity: 0; }
-}
-
-@keyframes snowFall2 {
-  0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(14px) rotate(-180deg); opacity: 0; }
+/* Shine animation */
+@keyframes fbShine {
+  0% { left: -120%; }
+  100% { left: 200%; }
 }
 
 .fb:hover {
   background: #0d5fd3;
   transform: scale(1.07);
+  box-shadow: 0 0 14px rgba(255,255,255,0.55),
+              0 0 25px rgba(255,255,255,0.35);
 }
 
 /* INTRO SECTION */
