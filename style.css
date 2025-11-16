@@ -19,15 +19,40 @@ header {
   border-bottom: 1px solid #222;
 }
 
+/* Modern Cottages — Shine Effect */
 header h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* 🎅 Santa Hat Only – Clean & Stable */
+header h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.4) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shineMove 3.5s infinite ease-in-out;
+}
+
+@keyframes shineMove {
+  0% { left: -150%; }
+  100% { left: 250%; }
+}
+
+/* 🎅 Santa Hat – fixed (no bugs) */
 .fb-wrapper {
   position: relative;
   display: inline-block;
@@ -47,7 +72,7 @@ header h1 {
   pointer-events: none;
 }
 
-/* Facebook Button */
+/* Facebook Button — Premium Glow + Mini Snowfall */
 .fb {
   padding: 12px 22px;
   background: #1877f2;
@@ -57,11 +82,32 @@ header h1 {
   font-size: 18px;
   font-weight: 500;
   transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(24,119,242,0.6);
+}
+
+/* minimal snowflake animation */
+.fb::before {
+  content: "❄";
+  position: absolute;
+  top: -12px;
+  right: -8px;
+  font-size: 18px;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 4px white);
+  animation: snowSpin 2.2s infinite linear;
+}
+
+@keyframes snowSpin {
+  0% { transform: rotate(0deg) translateY(0px); opacity: 1; }
+  100% { transform: rotate(360deg) translateY(6px); opacity: 0; }
 }
 
 .fb:hover {
   background: #0d5fd3;
   transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(24,119,242,0.9);
 }
 
 /* INTRO SECTION */
