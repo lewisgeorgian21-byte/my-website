@@ -37,11 +37,55 @@ header h1 {
   font-size: 18px;
   font-weight: 500;
   transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px #1877f2;
+  animation: lightsGlow 2.5s infinite alternate;
 }
 
 .fb:hover {
   background: #0d5fd3;
   transform: scale(1.05);
+}
+
+/* 🎄 Christmas Lights Animation */
+@keyframes lightsGlow {
+  0% { box-shadow: 0 0 10px red, 0 0 20px yellow; }
+  33% { box-shadow: 0 0 10px green, 0 0 20px blue; }
+  66% { box-shadow: 0 0 10px gold, 0 0 20px red; }
+  100% { box-shadow: 0 0 15px #1877f2, 0 0 30px #0d5fd3; }
+}
+
+/* ✨ Sparkle Effect */
+.fb::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,0,0,0) 70%);
+  animation: sparkleSpin 3s infinite linear;
+}
+
+@keyframes sparkleSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ❄️ Snowflake Animation */
+.fb::before {
+  content: "❄️";
+  position: absolute;
+  font-size: 18px;
+  top: -10px;
+  right: -5px;
+  animation: snowFloat 1.8s infinite ease-in-out;
+}
+
+@keyframes snowFloat {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(18px) rotate(180deg); opacity: 0; }
 }
 
 /* INTRO SECTION */
