@@ -25,18 +25,48 @@ header h1 {
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 1px;
+}
+
+/* 🎅 Santa Hat on Facebook Button */
+.fb-wrapper {
   position: relative;
   display: inline-block;
 }
 
-/* 🎅 Santa Hat on Logo */
-header h1::after {
-  content: "🎅";
+.fb-wrapper::before {
+  content: "";
   position: absolute;
-  font-size: 32px;
+  width: 35px;
+  height: 35px;
+  background-image: url('https://i.imgur.com/3uYFj5n.png'); /* ქუდი */
+  background-size: contain;
+  background-repeat: no-repeat;
   top: -28px;
-  left: -25px;
-  transform: rotate(-18deg);
+  right: -12px;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+/* ❄️ Moving fluffy ball */
+.fb-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  top: -8px;
+  right: -4px;
+  box-shadow: 0 0 8px white;
+  animation: fluffyMove 1.8s infinite ease-in-out;
+}
+
+@keyframes fluffyMove {
+  0%   { transform: translate(0px, 0px); }
+  25%  { transform: translate(2px, 1px); }
+  50%  { transform: translate(0px, 3px); }
+  75%  { transform: translate(-2px, 1px); }
+  100% { transform: translate(0px, 0px); }
 }
 
 /* Facebook Button Dark Style */
@@ -151,7 +181,7 @@ header h1::after {
   transition: 0.4s;
 }
 
-/* HOVER — Zoom + text appearing */
+/* Hover Effect: Zoom & Text */
 .card:hover img {
   transform: scale(1.1);
   filter: brightness(60%);
