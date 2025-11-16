@@ -1,36 +1,33 @@
-/* ===========================
-   GLOBAL STYLES
-=========================== */
+/* DARK MODE GLOBAL */
 body {
   margin: 0;
-  background: #ffffff;
+  background: #0d0d0d;
+  color: #e4e4e4;
   font-family: 'Poppins', sans-serif;
 }
 
-/* ===========================
-   HEADER
-=========================== */
+/* HEADER */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background: white;
+  padding: 25px 45px;
+  background: #111;
   position: sticky;
   top: 0;
-  z-index: 10;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  z-index: 20;
+  border-bottom: 1px solid #222;
 }
 
 header h1 {
-  margin: 0;
   font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  color: #ffffff;
+  letter-spacing: 1px;
 }
 
-/* Facebook Button */
+/* Facebook Button Dark Style */
 .fb {
   padding: 12px 22px;
   background: #1877f2;
@@ -44,27 +41,35 @@ header h1 {
 
 .fb:hover {
   background: #0d5fd3;
+  transform: scale(1.05);
 }
 
-/* ===========================
-   INTRO TEXT BLOCK
-=========================== */
+/* INTRO SECTION */
 .intro {
   text-align: center;
   max-width: 900px;
-  margin: 30px auto 10px auto;
-  font-size: 19px;
-  color: #333;
-  line-height: 1.7;
-  padding: 25px 25px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #141414;
   border-radius: 14px;
-  background: #f9f9f9;
-  box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
 
-/* ===========================
-   GALLERY GRID
-=========================== */
+.intro h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.intro p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #d5d5d5;
+}
+
+/* GALLERY GRID */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -72,58 +77,40 @@ header h1 {
   padding: 40px;
 }
 
-/* ===========================
-   IMAGE CARD
-=========================== */
+/* CARD */
 .card {
-  background: white;
-  padding: 10px;
+  position: relative;
+  overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  background: #111;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
   transition: 0.3s;
-  transform-style: preserve-3d;
 }
 
 .card img {
   width: 100%;
   height: 360px;
   object-fit: cover;
-  border-radius: 10px;
+  filter: brightness(85%);
+  transition: 0.4s;
 }
 
-.card:hover {
-  transform: scale(1.06) rotateX(4deg) rotateY(4deg);
-  box-shadow: 0 25px 40px rgba(0,0,0,0.20);
+/* Image hover effect */
+.card:hover img {
+  transform: scale(1.1);
+  filter: brightness(100%);
 }
 
-/* ===========================
-   RESPONSIVE FIXES
-=========================== */
-@media (max-width: 600px) {
-  header {
-    padding: 15px 20px;
-  }
-  
-  header h1 {
-    font-size: 24px;
-  }
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #111;
+  margin-top: 60px;
+  border-top: 1px solid #222;
+}
 
-  .fb {
-    padding: 10px 18px;
-    font-size: 16px;
-  }
-
-  .intro {
-    font-size: 17px;
-    padding: 20px;
-  }
-
-  .gallery {
-    padding: 20px;
-    gap: 25px;
-  }
-
-  .card img {
-    height: 260px;
-  }
+footer p {
+  color: #999;
+  font-size: 15px;
 }
